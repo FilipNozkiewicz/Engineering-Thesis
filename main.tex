@@ -1,34 +1,38 @@
-\documentclass[a4paper, 11pt, openright, twoside]{report}
+\documentclass[a4paper, 15pt, openright, twoside]{article}
 
 \usepackage{graphicx}
-
 \usepackage{polski}
 \usepackage[english,polish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[top=3.5cm,bottom=4.5cm,left=3.5cm,right=3.5cm, bindingoffset=0cm, footskip=2.5cm]{geometry}
 \usepackage{setspace}
 \usepackage{multirow}
-\usepackage[unicode=true]{hyperref}
+\usepackage{mwe}
+\usepackage{blindtext}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{chngcntr}
+\addto\captionsenglish{% Replace "english" with the language you use
+	\renewcommand{\contentsname}%
+	{Table of contents}%
+}
+\usepackage{dblfloatfix}
+\usepackage{lipsum}
 
-\input{listings.tex}
-
-\DeclareCaptionFont{smallcap}{\small}
-\captionsetup[figure]{font=smallcap}
-\captionsetup[table]{font=smallcap}
+%\selectlanguage{polish}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftdot}{.}
+\renewcommand*{\numberline}[1]{}
+\usepackage{etoolbox}
+\usepackage{titlesec}
 
 \begin{document}
 
-\input{title.tex}
-
-\input{statement.tex}
-
-%\selectlanguage{polish}
+\counterwithin{figure}{subsection}
 \selectlanguage{english}
-
-\tableofcontents
-
-
+\input{title.tex}
+\input{statement.tex}
+\input{content.tex}
 \appendix
-
-
 \end{document}
